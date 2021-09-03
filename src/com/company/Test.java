@@ -4,29 +4,102 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Books[] myBooks = new Books[3];
+        SimpleDotCom dot = new SimpleDotCom(); // instantiate a SDC object
+        int[] locations = {2,3,4};
+        dot.setLocationCells(locations);
+        String userGuess = "1";
+        String result = dot.checkYourself(userGuess);
 
-        int x = 0;
-
-        myBooks[0]= new Books();
-        myBooks[1] = new Books();
-        myBooks[2] = new Books();
-
-        myBooks[0].title = "Book1";
-        myBooks[1].title = "Book2";
-        myBooks[2].title = "Book3";
-        myBooks[0].author = "A1";
-        myBooks[1].author = "A2";
-        myBooks[2].author = "A3";
-
-        System.out.println(myBooks[0].title);
-
-        while (x < myBooks.length) {
-            System.out.print(myBooks[x].title);
-            System.out.print(" by ");
-            System.out.println(myBooks[x].author);
-            x = x + 1;
+        String testResults = "failed";
+        if (result.equals("hit")) {
+            testResults = "passed";
         }
+        System.out.println(testResults);
+
+
+//        int x = 0;
+//        Triangle[] ta = new Triangle[4];
+//        while (x < 4) {
+//            ta[x] = new Triangle();
+//            ta[x].height = (x + 1) * 2;
+//            ta[x].length = x + 4;
+//            ta[x].setArea();
+//        }
+//
+//        int y = x;
+//
+//        x = 27;
+//        Triangle t5 = ta[2];
+//        ta[2].area = 342;
+//        System.out.print("y = " + y);
+//        System.out.println(", t5 area = " + t5.area);
+//    }
+
+
+//        int [] index = new int[4];
+//
+//        index[0] = 1;
+//        index[1] = 3;
+//        index[2] = 0;
+//        index[3] = 2;
+//
+//        String [] islands = new String[4];
+//        islands[0] = "Bermuda";
+//        islands[1] = "Fiji";
+//        islands[2] = "Azores";
+//        islands[3] = "Cstuf";
+//
+//        int y = 0;
+//        int ref;
+//
+//        while (y < 4) {
+//            ref = index[y];
+//            System.out.print("island = ");
+//            System.out.println(islands[ref]);
+//            y++;
+//        }
+
+//        Hobbits[] h = new Hobbits[3];
+//        int z = 0;
+//
+//        while (z < 3) {
+//            z = z + 1;
+//            h[z] = new Hobbits();
+//            h[z].name = "bilbo";
+//            if (z == 0) {
+//                h[z].name = "frodo";
+//            }
+//            if (z == 1) {
+//                h[z].name = "sam";
+//            }
+//            System.out.print(h[z].name + " is a ");
+//            System.out.println("good Hobbit name");
+//        }
+
+
+//        Books[] myBooks = new Books[3];
+//
+//        int x = 0;
+//
+//        myBooks[0]= new Books();
+//        myBooks[1] = new Books();
+//        myBooks[2] = new Books();
+//
+//        myBooks[0].title = "Book1";
+//        myBooks[1].title = "Book2";
+//        myBooks[2].title = "Book3";
+//        myBooks[0].author = "A1";
+//        myBooks[1].author = "A2";
+//        myBooks[2].author = "A3";
+//
+//        System.out.println(myBooks[0].title);
+//
+//        while (x < myBooks.length) {
+//            System.out.print(myBooks[x].title);
+//            System.out.print(" by ");
+//            System.out.println(myBooks[x].author);
+//            x++;
+//        }
 
 
 //        Dog dog1 = new Dog();
