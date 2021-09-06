@@ -3,18 +3,71 @@ package com.company;
 public class Test {
 
     public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        A a2 = new C();
 
-        SimpleDotCom dot = new SimpleDotCom(); // instantiate a SDC object
-        int[] locations = {2,3,4};
-        dot.setLocationCells(locations);
-        String userGuess = "1";
-        String result = dot.checkYourself(userGuess);
+        c.m1();
+        c.m2();
+        c.m3();
+    }
 
-        String testResults = "failed";
-        if (result.equals("hit")) {
-            testResults = "passed";
+    static class A {
+        int ivar = 7;
+
+        void m1() {
+            System.out.print("A's m1, ");
         }
-        System.out.println(testResults);
+
+        void m2() {
+            System.out.print("A's m2, ");
+        }
+
+        void m3() {
+            System.out.print("A's m3, ");
+        }
+    }
+
+    static class B extends A {
+        void m1() {
+            System.out.print("B's m1, ");
+        }
+    }
+
+    static class C extends B {
+        void m3() {
+            System.out.print("C's m3, " + (ivar + 6));
+        }
+    }
+}
+//        int numOfGuesses = 0;
+//        GameHelper helper = new GameHelper();
+//
+//        DotCom theDotCom = new DotCom(); // instantiate a SDC object
+//
+////        String result = theDotCom.checkYourself(guess);
+//
+//        int randomNum = (int) (Math.random()*5);
+//        int[] locations = {randomNum, randomNum+1, randomNum+2};
+//
+//        theDotCom.setLocationCells[locations];
+//        boolean isAlive = true;
+//        while (isAlive == true) {
+//            String guess = helper.getUserInput("enter a number");
+//            String result = theDotCom.checkYourself(guess);
+//            numOfGuesses++;
+//            if (result.equals("kill")) {
+//                isAlive = false;
+//                System.out.println("You took " + numOfGuesses + " guesses");
+//            }
+//        }
+
+//        String testResults = "failed";
+//        if (result.equals("hit")) {
+//            testResults = "passed";
+//        }
+//        System.out.println(testResults);
 
 
 //        int x = 0;
@@ -185,8 +238,3 @@ public class Test {
 //        three.title = "Space Jam";
 //        three.genre = "Drama";
 //        three.rating = 127;
-
-
-    }
-}
-
