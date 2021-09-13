@@ -9,23 +9,24 @@ import java.util.Scanner;
         Scanner menuInput = new Scanner(System.in);
         DecimalFormat moneyFormat = new DecimalFormat("'$'###,##0.00");
 
-        HashMap<Integer, Integer> data = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> data = new HashMap<>();
+
 
         public void getLogin() throws IOException {
             int x = 1;
+            data.put(1234, 1234);
+            data.put(12345, 54321);
+
             do {
                 try {
-                    data.put(1234, 1234);
-                    data.put(12345, 54321);
 
                     System.out.println("Welcome to ATM Project");
                     System.out.println("Enter client number");
                     setCustomerNumber(menuInput.nextInt());
-
                     System.out.println("Enter PIN");
                     setPinNumber(menuInput.nextInt());
                 } catch (Exception e) {
-                    System.out.println("\n" + "Invalid" + "\n");
+                    System.out.println("Invalid Input");
                     x = 2;
                 }
 
@@ -34,7 +35,7 @@ import java.util.Scanner;
                 if (data.containsKey(cn) && data.get(cn) == pn) {
                     getAccountType();
                 } else
-                    System.out.println("\n" + "Wrong PIN or CN" + "\n");
+                    System.out.println("Wrong PIN or CN");
             } while (x == 1);
         }
 
@@ -73,7 +74,7 @@ import java.util.Scanner;
 
             switch (selection) {
                 case 1:
-                    System.out.println(String.format("Checking Balance: " + moneyFormat.format(getCheckingBalance())));
+                    System.out.println("Checking Balance: " + moneyFormat.format(getCheckingBalance()));
                     getAccountType();
                     break;
                 case 2:
@@ -103,23 +104,20 @@ import java.util.Scanner;
             int selection = menuInput.nextInt();
 
             switch (selection) {
-                case 1:
-                    System.out.println(String.format("Savings Balance: " + moneyFormat.format(getSavingBalance())));
+                case 1 -> {
+                    System.out.println("Savings Balance: " + moneyFormat.format(getSavingBalance()));
                     getAccountType();
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     getSavingWithdrawInput();
                     getAccountType();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     getSavingDepositInput();
                     getAccountType();
-                    break;
-                case 4:
-                    System.out.println("Thank you for using ATM");
-                    break;
-                default:
-                    System.out.println("Invalid Code");
+                }
+                case 4 -> System.out.println("Thank you for using ATM");
+                default -> System.out.println("Invalid Code");
             }
 
         }

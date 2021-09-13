@@ -81,7 +81,7 @@ public class Account {
             calcSavingWithdraw(amount);
             System.out.println("New saving Balance: " + moneyFormat.format(savingBalance));
         } else {
-            System.out.println("Balance below 0");
+            System.out.println("Balance below 0, Deposit First");
         }
     }
 
@@ -100,14 +100,14 @@ public class Account {
 
     public void getSavingDepositInput() {
         System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
-        System.out.println("Deposit amount ");
+        System.out.println("Deposit amount: ");
         double amount = input.nextDouble();
 
         if ((savingBalance + amount) >= 0) {
             calcSavingDeposit(amount);
             System.out.println("New saving Balance: " + moneyFormat.format(savingBalance));
         } else {
-            System.out.println("Balance below 0");
+            System.out.println("Can't have a balance below 0");
         }
     }
 }
